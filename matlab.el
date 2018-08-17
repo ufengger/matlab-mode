@@ -698,6 +698,7 @@ If font lock is not loaded, lay in wait."
     (define-key km [(control c) (control s)] 'matlab-shell-save-and-go)
     (define-key km [(control c) (control r)] 'matlab-shell-run-region)
     (define-key km [(control c) (control l)] 'matlab-shell-run-region-or-line)
+    (define-key km [(control c) (control p)] 'matlab-shell-run-paragraph)
     (define-key km [(meta control return)] 'matlab-shell-run-cell)
     (define-key km [(control c) (control t)] 'matlab-show-line-info)
     (define-key km [(control c) ?. ] 'matlab-find-file-on-path)
@@ -5527,6 +5528,11 @@ This command requires an active MATLAB shell."
      (matlab-shell-run-region (mark) (point))
    (matlab-shell-run-region (matlab-point-at-bol) (matlab-point-at-eol))))
 
+(defun matlab-shell-run-paragraph ()
+  "Run the current paragraph."
+  (interactive)
+  (let ((mark-paragraph)
+        (matlab-shell-run-region (mark) (point)))))
 
 ;;; MATLAB Shell Commands =====================================================
 
