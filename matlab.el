@@ -5531,8 +5531,9 @@ This command requires an active MATLAB shell."
 (defun matlab-shell-run-paragraph ()
   "Run the current paragraph."
   (interactive)
-  (let ((mark-paragraph)
-        (matlab-shell-run-region (mark) (point)))))
+  (mark-paragraph)
+  (matlab-shell-run-region (mark) (point))
+  )
 
 ;;; MATLAB Shell Commands =====================================================
 
