@@ -5531,6 +5531,7 @@ This command requires an active MATLAB shell."
   (interactive)
   (mark-paragraph)
   (matlab-shell-run-region (mark) (point))
+  (keyboard-quit)
   )
 
 ;;; MATLAB Shell Commands =====================================================
