@@ -5529,10 +5529,20 @@ This command requires an active MATLAB shell."
 (defun matlab-shell-run-paragraph ()
   "Run the current paragraph."
   (interactive)
-  (mark-paragraph)
-  (matlab-shell-run-region (mark) (point))
-  (keyboard-quit)
-  )
+  (let* (b e)
+    (save-excursion
+      (if (setq b (re-search-backward "^[ \t]*$" nil t))
+          (progn
+            (forward-line)
+            (setq b (line-beginning-position)))
+        (setq b 1)))
+    (save-excursion
+      (if (setq e (re-search-forward "^[ \t]*$" nil t))
+          (progn
+            (forward-line -1)
+            (setq e (line-end-position)))
+        (setq e (point-max)))))
+  (matlab-shell-run-region b e))
 
 ;;; MATLAB Shell Commands =====================================================
 
