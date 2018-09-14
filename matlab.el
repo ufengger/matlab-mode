@@ -5541,8 +5541,9 @@ This command requires an active MATLAB shell."
           (progn
             (forward-line -1)
             (setq e (line-end-position)))
-        (setq e (point-max)))))
-  (matlab-shell-run-region b e))
+        (setq e (point-max))))
+    (list b e)
+    (matlab-shell-run-region b e)))
 
 ;;; MATLAB Shell Commands =====================================================
 
