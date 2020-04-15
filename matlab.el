@@ -180,7 +180,7 @@ determining if there is to be continuation is used instead."
   :group 'matlab
   :type 'integer)
 
-(defcustom matlab-case-level '(2 . 2)
+(defcustom matlab-case-level '(0 . 4)
   "*How far to indent case/otherwise statements in a switch.
 This can be an integer, which is the distance to indent the CASE and
 OTHERWISE commands, and how far to indent commands appearing in CASE
